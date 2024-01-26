@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.covid19app.viewmodel.MainActivityVM"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
