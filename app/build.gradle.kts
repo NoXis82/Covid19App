@@ -45,11 +45,10 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-common-java8:2.7.0")
     implementation ("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.7.0")
     //Dagger2
-    implementation ("com.google.dagger:dagger:2.41")
-    kapt ("com.google.dagger:dagger-compiler:2.41")
-    implementation ("com.google.dagger:dagger-android:2.41")
-    implementation ("com.google.dagger:dagger-android-support:2.41")
-    kapt ("com.google.dagger:dagger-android-processor:2.41")
+    implementation ("com.google.dagger:dagger:2.23.2")
+    kapt ("com.google.dagger:dagger-compiler:2.23.2")
+    implementation ("com.google.dagger:dagger-android-support:2.23.2")
+    kapt ("com.google.dagger:dagger-android-processor:2.23.2")
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
