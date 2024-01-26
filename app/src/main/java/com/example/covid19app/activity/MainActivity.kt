@@ -1,6 +1,5 @@
 package com.example.covid19app.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.covid19app.BR
 import com.example.covid19app.R
