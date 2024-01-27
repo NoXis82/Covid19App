@@ -8,11 +8,12 @@ import java.net.SocketTimeoutException
 
 class ApiResponse<T>(
     private val status: Int,
-    private val data: T?,
+    val data: T?,
     private val throwable: Throwable?
 ) {
     var errorCode = "200"
     var errorDescription = "Something went wrong"
+    //var data: T? = null
 
     init {
         if (throwable != null) {
