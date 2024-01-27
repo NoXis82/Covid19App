@@ -45,7 +45,11 @@ class NetworkModule {
     @Provides
     fun getCacheInterceptor(context: Context): Interceptor {
         return Interceptor { chain ->
-            val response = chain.proceed(chain.request())
+            val request = chain.request().newBuilder()
+                .addHeader(API_HOST, HOST)
+                .addHeader(API_KEY, KEY)
+                .build()
+            val response = chain.proceed(request)
             val cacheControl = if (isConnected(context)) {
                 CacheControl.Builder()
                     .maxAge(0, TimeUnit.SECONDS)
@@ -103,9 +107,9 @@ class NetworkModule {
     companion object {
         const val PRAGMA_HEADER: String = "pragma"
         const val CACHE_CONTROL_HEADER: String = "Cache-Control"
-        const val BASE_URL: String = "https://covid-19-tracking.p.rapidapi.com/v1"
+        const val BASE_URL: String = "https://covid-19-tracking.p.rapidapi.com"
         const val API_KEY: String = "X-RapidAPI-Key"
-        const val API_Host: String = "X-RapidAPI-Host"
+        const val API_HOST: String = "X-RapidAPI-Host"
         const val KEY: String = "0be087cfa8msh173552b5ca9d473p1324ffjsnd22a9fb9c10d"
         const val HOST: String = "covid-19-tracking.p.rapidapi.com"
     }

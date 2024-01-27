@@ -8,6 +8,7 @@ import com.example.covid19app.viewmodel.MainActivityVM
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainActivityVM>() {
+
     private var binding: ActivityMainBinding? = null
 
     @Inject

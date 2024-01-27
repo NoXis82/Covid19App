@@ -1,6 +1,7 @@
 package com.example.covid19app.repository
 
 import com.example.covid19app.BaseScheduler
+import com.example.covid19app.models.ResponseWrapper
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
@@ -44,5 +45,9 @@ class DataManager() {
                     )
                 }
             })
+    }
+
+    fun getCovidData(responseListener: ResponseListener<ResponseWrapper>) {
+        performRequest(api!!.getCovidData(), responseListener)
     }
 }

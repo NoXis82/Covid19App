@@ -1,7 +1,6 @@
 package com.example.covid19app.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -21,8 +20,8 @@ abstract class BaseActivity<T : ViewDataBinding, V : ViewModel> : AppCompatActiv
 
     abstract fun getViewModel(): V
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         performDependencyInject()
         performDataBinding()
     }
@@ -41,5 +40,9 @@ abstract class BaseActivity<T : ViewDataBinding, V : ViewModel> : AppCompatActiv
 
     private fun performDependencyInject() {
         AndroidInjection.inject(this)
+    }
+
+    companion object {
+        private const val TAG = "BaseActivity"
     }
 }
