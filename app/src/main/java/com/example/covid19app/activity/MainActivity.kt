@@ -44,6 +44,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityVM>() {
         mainActivityVM.response.observe(this) { apiResponseWrapper ->
             if (apiResponseWrapper.data != null) {
                 Log.d(TAG, "do something with data(records)")
+                apiResponseWrapper.data?.forEach {
+                    Log.d(TAG, "$it")
+                }
             }
         }
     }

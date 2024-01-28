@@ -1,7 +1,8 @@
 package com.example.covid19app.repository
 
+import android.util.Log
 import com.example.covid19app.BaseScheduler
-import com.example.covid19app.models.ResponseWrapper
+import com.example.covid19app.models.ItemInfo
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
@@ -40,6 +41,7 @@ class DataManager() {
                 }
 
                 override fun onNext(t: T & Any) {
+                    Log.d(TAG, "onNext")
                     responseListener.onResponse(
                         ApiResponse(ResponseStatus.SUCCESS.ordinal, t, null)
                     )
@@ -47,7 +49,11 @@ class DataManager() {
             })
     }
 
-    fun getCovidData(responseListener: ResponseListener<ResponseWrapper>) {
+    fun getCovidData(responseListener: ResponseListener<List<ItemInfo>>) {
         performRequest(api!!.getCovidData(), responseListener)
+    }
+
+    companion object {
+        private const val TAG = "DataManager"
     }
 }

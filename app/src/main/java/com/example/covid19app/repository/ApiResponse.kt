@@ -6,16 +6,15 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-class ApiResponse<T>(
-    private val status: Int,
-    val data: T?,
-    private val throwable: Throwable?
-) {
+class ApiResponse<T>() {
     var errorCode = "200"
     var errorDescription = "Something went wrong"
-    //var data: T? = null
+    var data: T? = null
+    var status: Int? = null
 
-    init {
+    constructor(status: Int, data: T?, throwable: Throwable?) : this() {
+        this.data = data
+        this.status = status
         if (throwable != null) {
             parseException(throwable)
         }

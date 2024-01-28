@@ -18,5 +18,5 @@ data class ItemInfo(
     @SerializedName("Total Deaths_text")
     val totalDeaths: String = "",
     @SerializedName("Total Recovered_text")
-    val totalRecovered: String = ""
+    val totalRecovered: String = "",
 )
