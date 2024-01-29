@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Covid19App</string>
+    <string name="cases">Cases: %1$s</string>
+    <string name="country">Country: %1$s</string>
+    <string name="lastUpdate">Last Update: %1$s</string>
+    <string name="newCases">New Cases: %1$s</string>
+    <string name="newDeaths">New Deaths: %1$s</string>
+    <string name="totalCases">Total Cases: %1$s</string>
+    <string name="totalDeaths">Total Deaths: %1$s</string>
+    <string name="totalRecovered">Total Recovered: %1$s</string>
 </resources>

@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class SchedulerProvider(): BaseScheduler {
     override fun io(): Scheduler {
-        return Schedulers.newThread()
+        return Schedulers.io()
     }
 
     override fun ui(): Scheduler {

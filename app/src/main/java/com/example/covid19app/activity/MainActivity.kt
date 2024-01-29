@@ -2,9 +2,12 @@ package com.example.covid19app.activity
 
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.covid19app.BR
 import com.example.covid19app.R
 import com.example.covid19app.databinding.ActivityMainBinding
+import com.example.covid19app.ui.ItemAdapter
 import com.example.covid19app.viewmodel.MainActivityVM
 import javax.inject.Inject
 
@@ -30,6 +33,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityVM>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         progressDialog = ProgressHelper(this)
+        val adapter = ItemAdapter()
+
         binding = getViewDataBinding()
         mainActivityVM.getCovidData()
 
@@ -43,10 +48,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityVM>() {
 
         mainActivityVM.response.observe(this) { apiResponseWrapper ->
             if (apiResponseWrapper.data != null) {
-                Log.d(TAG, "do something with data(records)")
-                apiResponseWrapper.data?.forEach {
-                    Log.d(TAG, "$it")
-                }
+                val manager = LinearLayoutManager(this)
+                binding?.recyclerView?.layoutManager = manager
+                adapter.data = apiResponseWrapper.data!!
+                binding?.recyclerView?.adapter = adapter 
             }
         }
     }
